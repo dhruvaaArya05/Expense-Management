@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const validate = require('../middleware/validate');
+const { z } = require('zod');
+const validate = require('../middlewares/validate');
 const { createCompany, createUser, getUserByEmail } = require('../repositories/userRepo');
 const { hash, compare } = require('../utils/hash');
 const { sign } = require('../utils/jwt');

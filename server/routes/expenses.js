@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { z } = require('zod');
-const validate = require('../middleware/validate');
-const { auth, requireRole } = require('../middleware/auth');
+const validate = require("../middlewares/validate")
+const { auth, requireRole } = require("../middlewares/auth");
 const { convert } = require('../services/currencyService');
 const { createExpense, listMine, getExpense } = require('../repositories/expenseRepo');
 const { bootstrapFirstStep } = require('../services/approvalService');

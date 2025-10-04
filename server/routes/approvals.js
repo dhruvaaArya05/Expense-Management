@@ -1,5 +1,9 @@
 const router = require('express').Router();
-
+const { z } = require('zod');
+const validate = require("../middlewares/validate")
+const { auth, requireRole } = require("../middlewares/auth");
+const { getExpense } = require('../repositories/expenseRepo');
+const { decide, advanceIfPassed } = require('../services/approvalService');
 
 const decisionSchema = z.object({ decision: z.enum(['APPROVED', 'REJECTED']), comment: z.string().optional() });
 router.post('/:approvalId/decision', validate(decisionSchema), async (req, res, next) => {
